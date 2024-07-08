@@ -23,9 +23,12 @@ class _InformationState extends State<Information> {
     BlocProvider.of<CausesCubit>(context).getCauses();
   }
 
-  bool age1 = false;
-  bool age2 = false;
-  bool age3 = false;
+  // bool age1 = false;
+  // bool age2 = false;
+  // bool age3 = false;
+
+  int? selectedValue;
+  String selected = '28th Day';
 
   List<String> chosenCausesList = [];
 
@@ -77,41 +80,87 @@ class _InformationState extends State<Information> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      CheckboxListTile(
-                          title: Text(
-                            '1 day to 45 days',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          value: age1,
-                          onChanged: (val) {
-                            setState(() {
-                              age1 = val!;
-                            });
-                          }),
-                      CheckboxListTile(
-                          title: Text(
-                            '45 days to 6 months',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                          value: age2,
-                          onChanged: (val) {
-                            setState(() {
-                              age2 = val!;
-                            });
-                          }),
-                      CheckboxListTile(
-                          title: Text(
-                            '6 months to 1 year',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          value: age3,
-                          onChanged: (val) {
-                            setState(() {
-                              age3 = val!;
-                            });
-                          }),
+                      RadioListTile(
+                        title: Text('28 Days',
+                          style: TextStyle(color: Colors.white),),
+                        value: 1, groupValue: selectedValue, onChanged: (val){
+                        setState(() {
+                          selectedValue = 1;
+                          selected = '28th Day';
+                        });
+                      },),
+                      RadioListTile(
+                        title: Text('35 Days',
+                          style: TextStyle(color: Colors.white),),
+                        value: 2, groupValue: selectedValue, onChanged: (val){
+                        setState(() {
+                          selectedValue = 2;
+                          selected = '35th Day';
+                        });
+                      },),
+                      RadioListTile(
+                        title: Text('45 Days',
+                          style: TextStyle(color: Colors.white),),
+                        value: 3, groupValue: selectedValue, onChanged: (val){
+                        setState(() {
+                          selectedValue = 3;
+                          selected = '45th Day';
+                        });
+                      },),
+                      RadioListTile(
+                        title: Text('3-6 Months',
+                          style: TextStyle(color: Colors.white),),
+                        value: 4, groupValue: selectedValue, onChanged: (val){
+                        setState(() {
+                          selectedValue = 4;
+                          selected = 'At 3-6 Month Repeats annually';
+                        });
+                      },),
+                      RadioListTile(
+                        title: Text('8-12  months',
+                          style: TextStyle(color: Colors.white),),
+                        value: 5, groupValue: selectedValue, onChanged: (val){
+                        setState(() {
+                          selectedValue = 5;
+                          selected = 'At 8th and 12th month';
+                        });
+                      },),
+
+                      // CheckboxListTile(
+                      //     title: Text(
+                      //       '1 day to 45 days',
+                      //       style: TextStyle(color: Colors.white),
+                      //     ),
+                      //     value: 1,
+                      //     onChanged: (val) {
+                      //       setState(() {
+                      //         age1 = val!;
+                      //       });
+                      //     }),
+                      // CheckboxListTile(
+                      //     title: Text(
+                      //       '45 days to 6 months',
+                      //       style: TextStyle(
+                      //         color: Colors.white,
+                      //       ),
+                      //     ),
+                      //     value: age2,
+                      //     onChanged: (val) {
+                      //       setState(() {
+                      //         age2 = val!;
+                      //       });
+                      //     }),
+                      // CheckboxListTile(
+                      //     title: Text(
+                      //       '6 months to 1 year',
+                      //       style: TextStyle(color: Colors.white),
+                      //     ),
+                      //     value: age3,
+                      //     onChanged: (val) {
+                      //       setState(() {
+                      //         age3 = val!;
+                      //       });
+                      //     }),
                       SizedBox(
                         height: 20,
                       ),
@@ -166,7 +215,7 @@ class _InformationState extends State<Information> {
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  FindDiseasePage('45th Day', chosenCausesList),
+                                  FindDiseasePage(selected, chosenCausesList),
                             ),
                           );
                         },

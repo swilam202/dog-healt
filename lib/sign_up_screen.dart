@@ -20,7 +20,7 @@ class _CreateState extends State<Create> {
   Widget build(BuildContext context) {
     return BlocListener<SignupCubit, SignupState>(
   listener: (context, state) {
-   if(state is SignupSuccess || state is SignupFailure){
+   if(state is SignupSuccess){
      Navigator.push(
          context,
          MaterialPageRoute(
@@ -57,58 +57,58 @@ class _CreateState extends State<Create> {
                 SizedBox(
                   height: 50,
                 ),
-                TextFormField(
-                    controller:  BlocProvider.of<SignupCubit>(context).firstNameController,
-                    keyboardType: TextInputType.text,
-                    textAlign: TextAlign.start,
-                    onChanged: (value) {},
-                    decoration: const InputDecoration(
-                      hintText: 'First Name',
-                      labelText: 'First Name',
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: 15,
-                        horizontal: 20,
-                      ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10),),),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide:
-                          BorderSide(color: Color(0xff6F6460), width: 1),
-                          borderRadius: BorderRadius.all(Radius.circular(10),),),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide:
-                          BorderSide(color: Color(0xff6F6460), width: 1),
-                          borderRadius: BorderRadius.all(Radius.circular(10),),),
-                    ),),
-                SizedBox(
-                  height: 30,
-                ),
-                TextFormField(
-                    controller:  BlocProvider.of<SignupCubit>(context).lastNameController,
-                    keyboardType: TextInputType.text,
-                    textAlign: TextAlign.start,
-                    onChanged: (value) {},
-                    decoration: const InputDecoration(
-                      hintText: 'Last Name',
-                      labelText: 'Last Name ',
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: 15,
-                        horizontal: 20,
-                      ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide:
-                          BorderSide(color: Color(0xff6F6460), width: 1),
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide:
-                          BorderSide(color: Color(0xff6F6460), width: 1),
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                    )),
-                SizedBox(
-                  height: 30,
-                ),
+                // TextFormField(
+                //     controller:  BlocProvider.of<SignupCubit>(context).firstNameController,
+                //     keyboardType: TextInputType.text,
+                //     textAlign: TextAlign.start,
+                //     onChanged: (value) {},
+                //     decoration: const InputDecoration(
+                //       hintText: 'First Name',
+                //       labelText: 'First Name',
+                //       contentPadding: EdgeInsets.symmetric(
+                //         vertical: 15,
+                //         horizontal: 20,
+                //       ),
+                //       border: OutlineInputBorder(
+                //           borderRadius: BorderRadius.all(Radius.circular(10),),),
+                //       enabledBorder: OutlineInputBorder(
+                //           borderSide:
+                //           BorderSide(color: Color(0xff6F6460), width: 1),
+                //           borderRadius: BorderRadius.all(Radius.circular(10),),),
+                //       focusedBorder: OutlineInputBorder(
+                //           borderSide:
+                //           BorderSide(color: Color(0xff6F6460), width: 1),
+                //           borderRadius: BorderRadius.all(Radius.circular(10),),),
+                //     ),),
+                // SizedBox(
+                //   height: 30,
+                // ),
+                // TextFormField(
+                //     controller:  BlocProvider.of<SignupCubit>(context).lastNameController,
+                //     keyboardType: TextInputType.text,
+                //     textAlign: TextAlign.start,
+                //     onChanged: (value) {},
+                //     decoration: const InputDecoration(
+                //       hintText: 'Last Name',
+                //       labelText: 'Last Name ',
+                //       contentPadding: EdgeInsets.symmetric(
+                //         vertical: 15,
+                //         horizontal: 20,
+                //       ),
+                //       border: OutlineInputBorder(
+                //           borderRadius: BorderRadius.all(Radius.circular(10))),
+                //       enabledBorder: OutlineInputBorder(
+                //           borderSide:
+                //           BorderSide(color: Color(0xff6F6460), width: 1),
+                //           borderRadius: BorderRadius.all(Radius.circular(10))),
+                //       focusedBorder: OutlineInputBorder(
+                //           borderSide:
+                //           BorderSide(color: Color(0xff6F6460), width: 1),
+                //           borderRadius: BorderRadius.all(Radius.circular(10))),
+                //     )),
+                // SizedBox(
+                //   height: 30,
+                // ),
                 TextFormField(
                     controller: BlocProvider.of<SignupCubit>(context).emailController,
         
